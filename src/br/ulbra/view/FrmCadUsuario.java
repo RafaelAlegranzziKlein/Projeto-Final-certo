@@ -75,7 +75,7 @@ public class FrmCadUsuario extends javax.swing.JFrame {
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/285631_notepad_icon.png"))); // NOI18N
 
         btnFechar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        btnFechar.setText("Fechar");
+        btnFechar.setText("Voltar para o login");
         btnFechar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFecharActionPerformed(evt);
@@ -96,7 +96,7 @@ public class FrmCadUsuario extends javax.swing.JFrame {
                         .addContainerGap(244, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnFechar))))
+                        .addComponent(btnFechar, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -409,6 +409,8 @@ public class FrmCadUsuario extends javax.swing.JFrame {
             
             if(u.getSenhaUso().equals(confirma) && u.validarSenha(u.getSenhaUso()) &&  u.validarCPF(u.getCpfUso())){
                  ud.create(u);
+                 this.dispose();
+                 
             }else{
                 JOptionPane.showMessageDialog(null, "A senhas não são identicas ou A senha não é forte o suficiente");
                 JOptionPane.showMessageDialog(null, "Ou CPF invalido , lembrando que o CPF tem que ter . e - para funcionar");
@@ -420,10 +422,6 @@ public class FrmCadUsuario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_btnCadastrarActionPerformed
 
-    private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
-        this.dispose();
-    }//GEN-LAST:event_btnFecharActionPerformed
-
     private void txtSenha2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenha2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSenha2ActionPerformed
@@ -431,6 +429,12 @@ public class FrmCadUsuario extends javax.swing.JFrame {
     private void txtEnderecoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEnderecoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEnderecoActionPerformed
+
+    private void btnFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFecharActionPerformed
+
+        new FrmLogin(). setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnFecharActionPerformed
 
     /**
      * @param args the command line arguments
